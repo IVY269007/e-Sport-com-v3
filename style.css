@@ -1,0 +1,404 @@
+/* 全体のリセットと共通設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0f172a; /* 濃いネイビー（e-Sports風） */
+    color: #f8fafc;
+    line-height: 1.6;
+}
+
+/* ヘッダー・ナビゲーション */
+header {
+    background-color: #1e293b;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #38bdf8; /* アクセントカラーの青 */
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: #38bdf8;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1.5rem;
+}
+
+nav ul li a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #38bdf8;
+}
+
+/* メインコンテンツエリア */
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 4rem 1rem;
+    border:  white;
+    border-radius: 8px;
+    margin: 0 auto 2rem;
+    margin-bottom: 2rem;
+    max-width: 800px;
+    width: 90%;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px white;
+}
+
+.hero::before{
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    content: "";
+    filter: blur(3px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),url(img/yuushou.png);
+    transform: scale(1.1);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.hero h2 {
+    position: relative;
+    z-index: 1;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.content-section {
+    margin-bottom: 3rem;
+}
+
+.content-section h2, .content-section h3 {
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #38bdf8;
+    padding-left: 0.5rem;
+    margin-top: 1.5rem;
+    scroll-margin-top: 80px;
+}
+
+/* グリッドレイアウト（カード並び） */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1-fraction));
+    gap: 1.5rem;
+}
+
+.card {
+    background-color: #1e293b;
+    padding: 1.5rem;
+    border-radius: 6px;
+    border: 1px solid #334155;
+    margin-top: 1rem;
+}
+
+.card h4 {
+    color: #38bdf8;
+    margin-bottom: 0.5rem;
+}
+
+/* ニュースリスト */
+.news-list {
+    list-style: none;
+}
+
+.news-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.news-list .date {
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.news-list .label {
+    background-color: #0284c7;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.news-list a {
+    color: #f8fafc;
+    text-decoration: none;
+}
+
+.news-list a:hover {
+    text-decoration: underline;
+}
+
+/* フォーム */
+.contact-form {
+    background-color: #1e293b;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #94a3b8;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    color: #f8fafc;
+    border-radius: 4px;
+}
+
+.form-text{
+    padding-bottom: 25px;
+}
+
+.btn {
+    background-color: #0284c7;
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn:hover {
+    background-color: #0369a1;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    border-top: 1px solid #1e293b;
+}
+
+/* --- 背景画像の固定・ぼかし設定（ここを追加） --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('img/HEPC.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* ぼかし（数値はお好みで調整してください） */
+    filter: blur(8px);
+    
+    /* 文字を読みやすくするために、少し背景を暗くするマスクをかける */
+    background-blend-mode: multiply;
+    background-color: rgba(15, 23, 42, 0.75); /* 元の背景色に近い紺色をブレンド */
+    
+    /* コンテンツの裏側に配置する */
+    z-index: -1;
+}
+
+/* 全体のリセットと共通設定（既存のbodyを少し調整） */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    /* 背景色自体は指定しておき、画像読み込み前のチラつきを防ぐ */
+    background-color: #0f172a; 
+    color: #f8fafc;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 各セクションの背景を少し透過させて、背景をうっすら透かすとさらにおしゃれになります */
+header {
+    background-color: rgba(30, 41, 59, 0.85); /* 透過 */
+    backdrop-filter: blur(4px); /* ヘッダーの裏も少しぼかす */
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #38bdf8;
+    position: sticky; /* スクロールしてもヘッダーを上に固定したい場合 */
+    top: 0;
+    z-index: 10;
+}
+
+.card, .news-list, .contact-form {
+    background-color: rgba(30, 41, 59, 0.8); /* 透過 */
+    backdrop-filter: blur(4px);
+}
+
+/*差し込み画像の調整*/
+.picture {
+  display: block;
+  max-width: 100%;
+  width: 80%;
+  height: 300px;
+  margin: 30px auto; 
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+}
+
+.top-text{
+    font-family: 'Shippori Mincho', sans-serif;
+    font-weight: 500; 
+    font-style: italic;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: baseline; 
+    flex-wrap: wrap;       
+    justify-content: center;
+    gap: 0 0.1rem;
+}
+
+.top-text span {
+    display: inline-block; 
+    transition: transform 0.3s ease; 
+}
+
+.word-high{
+
+    font-size: 3.5rem;
+    transform: rotate(-15deg) translateY(-0.3rem); 
+    text-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+}
+
+.word-school{
+    font-size: 2.2rem;
+    transform: rotate(-15deg) translateY(-1.3rem) translateX(0.3rem);
+}
+
+.word-of{
+    font-size: 1.8rem;
+    transform: rotate(-15deg) translateY(-2rem) translateX(0.5rem);
+}
+
+.word-esports{
+    font-family: 'Shippori Mincho', sans-serif;
+    font-weight: 900;
+    font-size: 2.8rem;
+    color: #9cd1ff; 
+    transform: rotate(-15deg) translateY(-1rem) translateX(-2rem);
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.8);
+    margin: 0 0.2rem;
+}
+
+.word-wo{
+    font-size: 1.8rem;
+    transform: rotate(-15deg) translateY(-2.8rem) translateX(-1.8rem);
+}
+
+.word-here{
+    font-size: 2.2rem;
+    transform: rotate(-15deg) translateY(-1rem) translateX(-3.1rem);
+}
+
+.jump{
+    text-align: center;
+    background-color: #8ae6ff;
+    margin: 15px;
+    padding: 10px 30px;
+    border-radius: 9999px;
+    text-decoration: none;
+    color: #0f172a;
+    border: 2px solid;
+    border-color: #0f172a;
+    box-shadow: 0px 0px 5px #000;
+}
+
+.button{
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 15px;
+}
+
+.jump:hover{
+    background-color: #0f172a;
+    color: #ffffff;
+    border-color: #ffffff;
+    box-shadow: 0px 0px 5px #ffffff;
+}
+
+.text{
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Orbitron:wght@700;900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&display=swap');
+
+.word-header a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.full-width-band{
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 1.5rem 0;
+    background: linear-gradient(90deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    border-top: 2px solid #00d2ff;
+    border-bottom: 2px solid #00d2ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.band-text{
+    font-family: 'Chakra Petch', sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 2rem;
+    color: #ffffff;
+    letter-spacing: 0.15em;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.6);
+}
+
+.school-link a{
+    text-decoration: none;
+    color: inherit;   
+}
