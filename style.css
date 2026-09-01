@@ -10,12 +10,13 @@ body {
     background-color: #0f172a; /* 濃いネイビー（e-Sports風） */
     color: #f8fafc;
     line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
 /* ヘッダー・ナビゲーション */
 header {
     background-color: #1e293b;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -51,32 +52,39 @@ nav ul li a:hover, nav ul li a.active {
 main {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 2rem 1rem;
 }
 
 .hero {
     position: relative;
     text-align: center;
     padding: 4rem 1rem;
-    border:  white;
-    border-radius: 8px;
-    margin: 0 auto 2rem;
-    margin-bottom: 2rem;
-    max-width: 800px;
-    width: 90%;
+    margin: 0 auto;
+    max-width: none;
+    width: 100%;
     overflow: hidden;
-    box-shadow: 0px 0px 10px white;
 }
 
 .hero::before{
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
     content: "";
-    filter: blur(3px);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)),url(img/yuushou.png);
-    transform: scale(1.1);
+    position: absolute;
+    
+    /* ぼかし（blur）による端の隙間を防ぐため、少し外側まで広げる */
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    
+    /* 背景画像の設定 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 1)), url(img/yuushou2.png);
+    
+    /* 縦横比を維持したまま、左右の隙間が出ないよう領域全体を覆う */
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-repeat: no-repeat;
+    
+    /* ぼかしエフェクト */
+    filter: blur(3px);
+    
     z-index: 0;
 }
 
@@ -279,38 +287,34 @@ header {
   border-radius: 10px;
 }
 
-.top-text{
+.top-text span {
     font-family: 'Shippori Mincho', sans-serif;
     font-weight: 500; 
     font-style: italic;
-    color: #ffffff;
     display: inline-flex;
     align-items: baseline; 
     flex-wrap: wrap;       
     justify-content: center;
     gap: 0 0.1rem;
-}
-
-.top-text span {
-    display: inline-block; 
-    transition: transform 0.3s ease; 
+    font-size: 3rem;
 }
 
 .word-high{
-
     font-size: 3.5rem;
-    transform: rotate(-15deg) translateY(-0.3rem); 
-    text-shadow: 0 0 10px rgba(0, 123, 255, 0.6);
+    transform: rotate(-15deg) translateY(-0.3rem);
+    text-shadow: 0 0 5px rgba(0, 123, 255, 1); 
 }
 
 .word-school{
     font-size: 2.2rem;
     transform: rotate(-15deg) translateY(-1.3rem) translateX(0.3rem);
+    text-shadow: 0 0 5px rgba(0, 123, 255, 1);
 }
 
 .word-of{
     font-size: 1.8rem;
     transform: rotate(-15deg) translateY(-2rem) translateX(0.5rem);
+    text-shadow: 0 0 5px rgba(0, 123, 255, 1);
 }
 
 .word-esports{
@@ -321,16 +325,19 @@ header {
     transform: rotate(-15deg) translateY(-1rem) translateX(-2rem);
     text-shadow: 0 0 15px rgba(0, 210, 255, 0.8);
     margin: 0 0.2rem;
+    text-shadow: 0 0 5px rgba(0, 123, 255, 1);
 }
 
 .word-wo{
     font-size: 1.8rem;
     transform: rotate(-15deg) translateY(-2.8rem) translateX(-1.8rem);
+    text-shadow: 0 0 5px rgb(255, 255, 255);
 }
 
 .word-here{
     font-size: 2.2rem;
     transform: rotate(-15deg) translateY(-1rem) translateX(-3.1rem);
+    text-shadow: 0 0 5px rgba(0, 123, 255, 1);
 }
 
 .jump{
@@ -361,7 +368,8 @@ header {
 
 .text{
     text-align: center;
-    padding-bottom: 30px;
+    transform: translateY(60px);
+    font-size: 30%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Orbitron:wght@700;900&display=swap');
