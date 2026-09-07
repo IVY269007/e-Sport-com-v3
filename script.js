@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('name').value;
             
             // 送信完了のアラートを表示（擬似的なもの）
-            alert(`ありがとうございます！\n${school} の ${name} 様のお問い合わせを受け付けました。\n（※これはサンプル動作です）`);
+            alert(`ありがとうございます！\n${school} の ${name} 様のお問い合わせを受け付けました。\n`);
             
             // フォームを空にする
             contactForm.reset();
